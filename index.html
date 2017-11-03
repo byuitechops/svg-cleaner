@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Title</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        .large {
+            height: 500px;
+            width: 500px;
+        }
+        .flex{
+            width: 60vw;
+            display: flex;
+            justify-content: space-around;
+            background-color: rgb(219, 219, 219);
+            padding-bottom: 20px;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="flex">
+        <div>
+            <h3>Copy the SVG Code here:</h3>
+            <textarea id="daSVG" class="large"></textarea>
+        </div>
+
+        <div>
+            <h3>Cleaned SVG code:</h3>
+            <textarea id="codeOutput" class="large"></textarea>
+        </div>
+
+    </div>
+    <div id="svgOutput"></div>
+
+
+    <script>
+        function copy() {
+            document.getElementById('codeOutput').select();
+            document.execCommand('copy');
+        }
+
+        function cleanUp() {
+            var svg = $('#daSVG').val();
+
+            var svgOutput = $('#svgOutput');
+            svgOutput.html('').append(svg);
+
+            $('svg title').replaceWith('');
+            $('svg a').attr('target', '_blank');
+
+            $('#codeOutput').val(svgOutput.html());
+        }
+
+        document.getElementById('daSVG').addEventListener('input', () => {
+            cleanUp();
+            copy();
+        });
+
+    </script>
+
+
+</body>
+
+</html>
