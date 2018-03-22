@@ -1,2 +1,2 @@
 # Description #
-Hopefully I will be added soon!
+This tool removes title attributes from links inside SVG code. It also sets all links to open in a new tab. I can't remember who it was made for, but They should be using the version on the github page for this repo, so don't remove it!
